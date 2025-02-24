@@ -10,7 +10,7 @@ const UserCard = ({user}) => {
     <div className=' h-[30vw] '>
       <div className="card card-compact bg-base-300 w-[24vw] shadow-xl  p-4">
   <figure>
-    <img
+     <img
       src={photoUrl}
       alt="user_img"
       className='w-[20vw] h-[20vw] rounded-md'

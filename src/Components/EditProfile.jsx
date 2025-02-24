@@ -43,7 +43,7 @@ const EditProfile = ({ user }) => {
         toast.success("Profile saved successfully", {
           position: "top-right",
           autoClose: 1000,
-          draggable:true
+          style: { backgroundColor: "#4CAF50", color: "white" },
         });
 
       }
