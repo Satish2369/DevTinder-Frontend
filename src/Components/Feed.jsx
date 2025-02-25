@@ -9,9 +9,10 @@ import UserCard from  "./UserCard"
 const Feed = () => {
 
    const dispatch = useDispatch();
-   const feed = useSelector((store)=>store.feed);
+   const feed = useSelector((store)=>store?.feed);
 
   //  console.log(feed);
+
   const fetchFeed = async()=>{
 
     try {
@@ -31,6 +32,12 @@ const Feed = () => {
   useEffect(()=>{
     fetchFeed();
   },[]);
+
+  if(!feed) return ;
+
+  if(feed.length <1) return <h1 className='text-white text-2xl m-28 p-5 text-center'>No more users available.</h1>
+
+
 
 
   return ( feed &&(

@@ -1,10 +1,38 @@
 
 import React from 'react'
+import { BASE_URL } from '../utils/constants';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { removeUserFromFeed } from '../utils/feedSlice';
 
 const UserCard = ({user}) => {
 
-   const {firstName,lastName,photoUrl,about,skills,age,gender} = user;
-  //  console.log(age);
+   const dispatch = useDispatch();
+
+   const {firstName,lastName,photoUrl,about,skills,age,gender,_id} = user;
+    
+
+   
+   const  handleSendRequest = async(status,userId)=>{
+    try{
+      const res = await axios.post(BASE_URL + "/request/send/"+ status + "/" + userId,{},{
+        withCredentials:true
+      });
+
+      
+     dispatch(removeUserFromFeed(userId));
+
+
+    }
+    catch(e){
+       console.error(e);
+    }
+   }
+   
+
+
+   
+
 
   return (
     <div className=' h-[30vw] '>
@@ -19,10 +47,10 @@ const UserCard = ({user}) => {
    <div className="card-body">
     <h2  className="text-center text-bold text-white text-2xl" >{firstName + " " + lastName}</h2>
      {age && gender && <p className='text-center text-bold text-white text-2xl'>{age  + ", " + gender}</p>}
-    <p className='text-center text-bold text-white text-2xl '>{about}</p>
+    <p className=' text-bold text-white text-xl text-center '>{about}</p>
     <div className="card-actions justify-center m-4">
-      <button className="btn text-white bg-green-600">Interested</button>
-      <button className="btn  text-white bg-red-600">Ignore</button>
+      <button className="btn text-white bg-green-600" onClick={()=> handleSendRequest("interested",_id)}>Interested</button>
+      <button className="btn  text-white bg-red-600" onClick={()=> handleSendRequest("ignored",_id)}>Ignore</button>
     </div>
   </div>
 </div>

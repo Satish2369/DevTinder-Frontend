@@ -10,7 +10,8 @@ const requestsSlice = createSlice({
         return action.payload;
     },
     removeRequests:(state,action)=>{
-        return null;
+        const id = action.payload;
+       return state.filter((x)=> x._id!== id);
     }
 
 

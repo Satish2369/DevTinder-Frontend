@@ -36,8 +36,8 @@ const Connections = () => {
 
 
   return (
-    <div className=''>
-        <h2 className='text-bold text-2xl text-center m-5'>Connections</h2>
+    <div className='mb-[5vw] p-5'>
+        <h2 className='text-bold text-3xl text-center m-5 text-white'>Connections</h2>
       
     {
       connections?.map((connection)=>{
@@ -48,16 +48,16 @@ const Connections = () => {
 
 
         return (
-                <div key={_id} className='flex justify-center'> 
+                <div key={_id} className='flex justify-center m-4'> 
                     <div  className=' flex justify-start  p-[2vw]     w-1/2 rounded-md bg-base-300'>
                     <div className='flex ml-[2vw]'>
                     <img src={photoUrl} alt="user-img" className='w-[10vw] h-[10vw] rounded-full' />
                     </div>
               
                 <div className='flex items-center flex-col ml-[3vw]'>
-                <h2 className=' font-bold text-xl mb-1 '> {firstName + " " + lastName}</h2>
+                <h2 className=' font-bold text-xl mb-1 text-white'> {firstName + " " + lastName}</h2>
                 {age && gender && <p className='text-center  text-white text-xl'>{age  + ", " + gender}</p>}
-                <h2 className='ml-[3vw] font-bold' >{about}</h2>
+                <h2 className='ml-[3vw] font-bold text-white' >{about}</h2>
                 </div>
 
 

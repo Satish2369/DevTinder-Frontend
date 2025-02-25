@@ -54,7 +54,7 @@ const Navbar = () => {
     {user && (
       
          <div className='flex items-center'> 
-   <div>Welcome, {user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1).toLowerCase()}</div>
+   <div>Welcome, {user.firstName}</div>
 
   
    <div className="dropdown dropdown-end mx-5">

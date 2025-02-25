@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-import { addRequests } from "../utils/requestsSlice";
+import { addRequests, removeRequests } from "../utils/requestsSlice";
 
 const Requests = () => {
   const requests = useSelector((store) => store?.requests);
@@ -21,6 +21,28 @@ const Requests = () => {
     }
   };
 
+  const reviewRequest = async(status,_id)=>{
+    
+    try{
+      const request = await axios.post(BASE_URL + "/request/review/" + status +"/" + _id,{},{withCredentials:true});
+      dispatch(removeRequests(_id));
+    }
+    catch(e){
+      console.error(e.response.data);
+    }
+    
+
+
+  }
+
+
+
+
+
+
+
+
+
   useEffect(() => {
     fetchRequests();
   }, []);
@@ -28,10 +50,10 @@ const Requests = () => {
   if (!requests) return;
 
   if (requests.length === 0)
-    return <h1 className="text-center m-3 p-3 text-bold ">No requestsfound</h1>;
+    return <h1 className="text-center m-7 p-3 text-bold text-white ">No requests found</h1>;
 
   return (
-    <div className="">
+    <div className=" mb-[4vw] p-5">
       <h2 className="text-bold text-3xl text-center m-5 text-white">
         Connections Requests
       </h2>
@@ -41,7 +63,7 @@ const Requests = () => {
           request.fromUserId;
 
         return (
-          <div key={_id} className="flex justify-center items-center">
+          <div key={_id} className="flex justify-center items-center m-4">
             <div className=" flex justify-between  p-[1vw]     w-1/2 rounded-md bg-base-300">
               <div className="flex ml-[2vw]">
                 <img
@@ -63,8 +85,8 @@ const Requests = () => {
               </div>
 
                <div className="m-[2vw] mt-[4vw] flex gap-[1vw]">
-               <button className="btn btn-outline btn-primary w-[8vw]">Reject</button>
-               <button className="btn btn-outline btn-secondary w-[8vw]">Accept</button>
+               <button className="btn btn-outline btn-primary w-[8vw]"  onClick={()=> reviewRequest("rejected",request._id)}>Reject</button>
+               <button className="btn btn-outline btn-secondary w-[8vw]"  onClick={()=> reviewRequest("accepted",request._id)}>Accept</button>
                </div>
 
 
