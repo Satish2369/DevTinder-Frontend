@@ -27,7 +27,7 @@ const res = await axios.post(BASE_URL  +"/login",{
 });
 
 
-      console.log(res.data)
+      // console.log(res.data)
       dispatch(addUsers(res?.data));
       return navigate("/");
     } catch (e) {
@@ -52,7 +52,7 @@ const res = await axios.post(BASE_URL  +"/login",{
       });
       
       
-            console.log(res.data);
+            // console.log(res.data);
             dispatch(addUsers(res?.data?.data));
             return navigate("/profile");
           } catch (e) {

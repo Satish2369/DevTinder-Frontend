@@ -56,15 +56,14 @@ const Body = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-    {/* Navbar */}
+
     <Navbar />
 
-    {/* Main Content (Outlet) */}
     <main className="flex-grow p-4">
       <Outlet />
     </main>
 
-    {/* Footer */}
+   
     <Footer />
   </div>
   )
