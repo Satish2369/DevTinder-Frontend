@@ -9,6 +9,8 @@ import appStore from "./utils/appStore";
 import Feed from "./Components/Feed";
 import Connections from "./Components/Connections";
 import Requests from "./Components/Requests";
+import TermsnCondition from "./Components/TermsnCondition";
+import Privacy from "./Components/Privacy";
 
 const App = () => (
    
@@ -28,8 +30,9 @@ const App = () => (
           <Route path="/profile" element={<Profile />} />
           <Route path="/connections" element={<Connections />} />
           <Route path="/requests" element={<Requests />} />
-
-
+          <Route path="/termsncondition" element={<TermsnCondition />} />
+          <Route path="/privacy" element={<Privacy />} />
+     
 
 
         </Route>

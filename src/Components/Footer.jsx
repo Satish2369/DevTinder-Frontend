@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -19,6 +20,14 @@ const Footer = () => {
           <p className="ml-2">Copyright © {new Date().getFullYear()} - All rights reserved</p>
         </aside>
         <nav className="flex gap-4 mt-4 md:mt-0">
+         <div className='flex gap-2'>
+         <Link to="/termsncondition">Terms and Conditions</Link>
+         <Link to="/privacy">Privacy Policy</Link>
+         </div>
+
+
+
+
           <a>
             <svg
               xmlns="http://www.w3.org/2000/svg"

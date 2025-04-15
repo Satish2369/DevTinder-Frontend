@@ -2,8 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUsers } from "../utils/userSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
+  
 
 const Login = () => {
   const [emailId, setEmailId] = useState("");
@@ -129,6 +130,27 @@ const res = await axios.post(BASE_URL  +"/login",{
             </label>
           </div>
           <p className="text-red-500">{error}</p>
+
+          <div>
+            {!isLogInForm && (
+                         <>
+
+
+
+                         <div className="flex gap-2 cursor-pointer items-center">
+                               <input type="checkbox"  className="w-4 h-4"/>
+                               <h3>I accept  to the <Link to="/termsncondition" className="text-blue-400">
+    terms and conditions.
+  </Link></h3>
+                         </div>
+                         
+                         </>
+
+
+            )}
+
+
+          </div>
           <div className="card-actions justify-center m-3">
             <button
               className="btn btn-primary w-[21vw] text-xl"
@@ -136,7 +158,7 @@ const res = await axios.post(BASE_URL  +"/login",{
             >
 {isLogInForm ? "Login" : "Signup"}
             </button>
-            <div className="text-white  cursor-pointer m-1 p-1" onClick={()=> setIsLogInForm((prev)=>!prev)} >{  isLogInForm ?  "New user ? signup" : "old user ? want to login"}</div>
+            <div className="text-white  cursor-pointer m-1 p-1" onClick={()=> setIsLogInForm((prev)=>!prev)} >{  isLogInForm ?  "New User ? Signup" : "Old User ? want to login"}</div>
           </div>
         </div>
       </div>

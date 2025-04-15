@@ -4,8 +4,10 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import { addRequests, removeRequests } from "../utils/requestsSlice";
+import useCheckUser from "../utils/customhooks/useCheckUser";
 
 const Requests = () => {
+  useCheckUser();
   const requests = useSelector((store) => store?.requests);
 
   const dispatch = useDispatch();

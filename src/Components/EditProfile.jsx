@@ -8,6 +8,8 @@ import { addUsers } from "../utils/userSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import useCheckUser from "../utils/customhooks/useCheckUser";
+
 
 const EditProfile = ({ user }) => {
   const [firstName, setFirstName] = useState(user?.firstName);
@@ -19,6 +21,8 @@ const EditProfile = ({ user }) => {
   const [error,setError] = useState("");
 
   const dispatch = useDispatch();
+
+   useCheckUser();
 
 
   const saveProfile = async () =>{

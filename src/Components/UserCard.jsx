@@ -35,20 +35,20 @@ const UserCard = ({user}) => {
 
 
   return (
-    <div className=' h-[30vw] '>
-      <div className="card card-compact bg-base-300 w-[24vw] shadow-xl  p-4">
+    <div className=' h-[28vw]  '>
+      <div className="card card-compact bg-base-300 w-[24vw] shadow-xl  p-2">
   <figure>
      <img
       src={photoUrl}
       alt="user_img"
-      className='w-[20vw] h-[20vw] rounded-md'
+      className='w-[18vw] h-[16vw] rounded-md'
       />   
   </figure>
    <div className="card-body">
     <h2  className="text-center text-bold text-white text-2xl" >{firstName + " " + lastName}</h2>
      {age && gender && <p className='text-center text-bold text-white text-2xl'>{age  + ", " + gender}</p>}
     <p className=' text-bold text-white text-xl text-center '>{about}</p>
-    <div className="card-actions justify-center m-4">
+    <div className="card-actions justify-center m-2">
       <button className="btn text-white bg-green-600" onClick={()=> handleSendRequest("interested",_id)}>Interested</button>
       <button className="btn  text-white bg-red-600" onClick={()=> handleSendRequest("ignored",_id)}>Ignore</button>
     </div>

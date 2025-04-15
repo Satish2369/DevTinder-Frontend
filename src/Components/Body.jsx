@@ -25,7 +25,6 @@ const Body = () => {
 
        try {
         
-        
         const res = await axios.get(BASE_URL + "/profile/view",{
           withCredentials:true
         }
@@ -59,7 +58,7 @@ const Body = () => {
 
     <Navbar />
 
-    <main className="flex-grow p-4">
+    <main className="flex-grow p-2">
       <Outlet />
     </main>
 
