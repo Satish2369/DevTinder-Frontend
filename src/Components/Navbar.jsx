@@ -45,7 +45,7 @@ const Navbar = () => {
     <div>
        <div className="navbar bg-base-300">
   <div className="flex-1">
-    <Link  to="/" className="btn btn-ghost text-xl"><img src="logo.png" alt="Devconnect"  className='w-44 h-10' /></Link>
+    <Link  to="/" className="btn btn-ghost text-xl"><img src="/logo.png" alt="Devconnect"  className='w-44 h-10' /></Link>
   </div>
   <div className="flex-none gap-2">
     <div className="form-control">
