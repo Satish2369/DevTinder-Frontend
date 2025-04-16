@@ -11,6 +11,9 @@ import Connections from "./Components/Connections";
 import Requests from "./Components/Requests";
 import TermsnCondition from "./Components/TermsnCondition";
 import Privacy from "./Components/Privacy";
+import ContactUs from "./Components/ContactUs";
+import CancellationNRefund from "./Components/CancellationNRefund";
+import ShippingNDelivery from "./Components/ShippingNDelivery";
 
 const App = () => (
    
@@ -32,6 +35,9 @@ const App = () => (
           <Route path="/requests" element={<Requests />} />
           <Route path="/termsncondition" element={<TermsnCondition />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/cancellationnrefunds" element={<CancellationNRefund/>} />
+          <Route path="/shippingndelivery" element={<ShippingNDelivery />} />
      
 
 

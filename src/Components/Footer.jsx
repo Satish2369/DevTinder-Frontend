@@ -23,6 +23,13 @@ const Footer = () => {
          <div className='flex gap-2'>
          <Link to="/termsncondition">Terms and Conditions</Link>
          <Link to="/privacy">Privacy Policy</Link>
+         <Link to="/contact">ContactUs</Link>
+         <Link to="cancellationnrefunds">cancellation&refunds</Link>
+         <Link to="/shippingndelivery">shipping&delivery</Link>
+
+
+
+
          </div>
 
 
