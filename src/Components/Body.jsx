@@ -13,44 +13,6 @@ import { useSelector } from 'react-redux'
 
 const Body = () => {
 
-  const dispatch = useDispatch();
-  const  navigate = useNavigate();
-  const userData = useSelector((store)=>store.user);
-
-
-
-  const fetchUser = async ()=>{
-
-      if(userData) return ;
-
-       try {
-        
-        const res = await axios.get(BASE_URL + "/profile/view",{
-          withCredentials:true
-        }
-      );
-
-      dispatch(addUsers(res?.data))
-
-
-      
-      }
-      catch(e){
-        if(e.status=== 401){
-         return  navigate("/login");
-        }
-        console.error(e);
-      }
-   
-
-
-  }
-
-  useEffect(()=>{
- 
-      fetchUser();
-    
-  },[])
 
 
   return (

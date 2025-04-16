@@ -40,12 +40,6 @@ const CancellationNRefund = () => {
           </ul>
         </div>
 
-        {/* <div className="bg-gray-50 p-6 rounded-lg">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-3">🔹 How to Cancel</h2>
-          <p className="text-gray-600 mb-2">1. Go to Account Settings → Membership</p>
-          <p className="text-gray-600 mb-2">2. Click "Cancel Membership"</p>
-          <p className="text-gray-600">3. Confirm cancellation</p>
-        </div> */}
       </div>
     </div>
   );
