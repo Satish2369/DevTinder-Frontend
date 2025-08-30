@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { addUsers } from "../utils/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
-  
 
 const Login = () => {
   const [emailId, setEmailId] = useState("");
@@ -19,14 +18,16 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-     
-const res = await axios.post(BASE_URL  +"/login",{
-       emailId,
-       password
-}, {
-   withCredentials: true,
-});
-
+      const res = await axios.post(
+        BASE_URL + "/login",
+        {
+          emailId,
+          password,
+        },
+        {
+          withCredentials: true,
+        }
+      );
 
       // console.log(res.data)
       dispatch(addUsers(res?.data));
@@ -37,32 +38,29 @@ const res = await axios.post(BASE_URL  +"/login",{
     }
   };
 
-
-
-
-  const handleSignup = async ()=>{
+  const handleSignup = async () => {
     try {
-     
-      const res = await axios.post(BASE_URL  +"/signup",{
-            firstName,
-            lastName,
-             emailId,
-             password
-      }, {
-         withCredentials: true,
-      });
-      
-      
-            // console.log(res.data);
-            dispatch(addUsers(res?.data?.data));
-            return navigate("/profile");
-          } catch (e) {
-            console.error(e);
-            setError(e?.response?.data || "something went wrong");
-          }
+      const res = await axios.post(
+        BASE_URL + "/signup",
+        {
+          firstName,
+          lastName,
+          emailId,
+          password,
+        },
+        {
+          withCredentials: true,
+        }
+      );
 
-  }
-
+      // console.log(res.data);
+      dispatch(addUsers(res?.data?.data));
+      return navigate("/profile");
+    } catch (e) {
+      console.error(e);
+      setError(e?.response?.data || "something went wrong");
+    }
+  };
 
   return (
     <div className="flex justify-center items-center">
@@ -133,32 +131,32 @@ const res = await axios.post(BASE_URL  +"/login",{
 
           <div>
             {!isLogInForm && (
-                         <>
-
-
-
-                         <div className="flex gap-2 cursor-pointer items-center">
-                               <input type="checkbox"  className="w-4 h-4"/>
-                               <h3>I accept  to the <Link to="/termsncondition" className="text-blue-400">
-    terms and conditions.
-  </Link></h3>
-                         </div>
-                         
-                         </>
-
-
+              <>
+                <div className="flex gap-2 cursor-pointer items-center">
+                  <input type="checkbox" className="w-4 h-4" />
+                  <h3>
+                    I accept to the{" "}
+                    <Link to="/termsncondition" className="text-blue-400">
+                      terms and conditions.
+                    </Link>
+                  </h3>
+                </div>
+              </>
             )}
-
-
           </div>
           <div className="card-actions justify-center m-3">
             <button
               className="btn btn-primary w-[21vw] text-xl"
-              onClick={ isLogInForm ?handleLogin :handleSignup}
+              onClick={isLogInForm ? handleLogin : handleSignup}
             >
-{isLogInForm ? "Login" : "Signup"}
+              {isLogInForm ? "Login" : "Signup"}
             </button>
-            <div className="text-white  cursor-pointer m-1 p-1" onClick={()=> setIsLogInForm((prev)=>!prev)} >{  isLogInForm ?  "New User ? Signup" : "Old User ? want to login"}</div>
+            <div
+              className="text-white  cursor-pointer m-1 p-1"
+              onClick={() => setIsLogInForm((prev) => !prev)}
+            >
+              {isLogInForm ? "New User ? Signup" : "Old User ? want to login"}
+            </div>
           </div>
         </div>
       </div>

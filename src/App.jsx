@@ -14,6 +14,7 @@ import Privacy from "./Components/Privacy";
 import ContactUs from "./Components/ContactUs";
 import CancellationNRefund from "./Components/CancellationNRefund";
 import ShippingNDelivery from "./Components/ShippingNDelivery";
+import Premium from "./Components/Premium";
 
 const App = () => (
    
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/requests" element={<Requests />} />
           <Route path="/termsncondition" element={<TermsnCondition />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/premium" element={<Premium />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/cancellationnrefunds" element={<CancellationNRefund/>} />
           <Route path="/shippingndelivery" element={<ShippingNDelivery />} />
