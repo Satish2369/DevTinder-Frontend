@@ -2,10 +2,33 @@
 import { BASE_URL } from '../utils/constants';
 import useCheckUser from '../utils/customhooks/useCheckUser';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const Premium = () => {
+
     
     useCheckUser();
+
+    useEffect(()=>{
+       verifyPremiumUser()
+    },[]);
+
+
+
+  const [isUserPremium,setIsUserPremium] = useState(false);
+
+  const verifyPremiumUser = async()=>{
+
+  try {
+    const res = await axios.get(BASE_URL + "payment/verify",{withCredentials:true});
+    if(res.data.isPremium) setIsUserPremium(true);
+  } catch(err) {
+    console.error("Error verifying premium user:", err);
+  }
+
+  }
+
+
 
     const silverFeatures = [
         "Live Chat",
@@ -49,14 +72,21 @@ const Premium = () => {
     },
     "theme": {
         "color": "#3399cc"
-    }
+    },
+    handler : verifyPremiumUser
 };
 var rzp1 = new window.Razorpay(options);
     rzp1.open();
     
     };
 
-  return (
+  return   isUserPremium ? (
+
+       <div>
+          You are already a premium member;
+       </div>
+
+  ) :(
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
