@@ -4,12 +4,11 @@ import { BASE_URL } from '../utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { addFeed } from '../utils/feedSlice'
 import UserCard from  "./UserCard"
-import useCheckUser from '../utils/customhooks/useCheckUser'
 
 
 const Feed = () => {
 
-   useCheckUser();
+  
    const dispatch = useDispatch();
    const feed = useSelector((store)=>store?.feed);
 

@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import { addRequests, removeRequests } from "../utils/requestsSlice";
-import useCheckUser from "../utils/customhooks/useCheckUser";
+
 
 const Requests = () => {
-  useCheckUser();
+
   const requests = useSelector((store) => store?.requests);
 
   const dispatch = useDispatch();
@@ -66,7 +66,7 @@ const Requests = () => {
 
         return (
           <div key={_id} className="flex justify-center items-center m-4">
-            <div className=" flex justify-between  p-[1vw]     w-1/2 rounded-md bg-base-300">
+            <div className=" flex justify-between  p-[1vw] w-1/2 rounded-md bg-base-300">
               <div className="flex ml-[2vw]">
                 <img
                   src={photoUrl}

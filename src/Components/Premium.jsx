@@ -32,7 +32,7 @@ const Premium = () => {
 
     const silverFeatures = [
         "Live Chat",
-        "Connections suport for 50 people"
+        "Connections support for 50 people"
     ];
 
     const goldFeatures = [

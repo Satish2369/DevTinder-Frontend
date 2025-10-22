@@ -1,12 +1,12 @@
 import axios from 'axios'
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import { BASE_URL } from '../utils/constants'
 import { addConnection } from '../utils/connectionsSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import useCheckUser from '../utils/customhooks/useCheckUser'
+import { Link } from 'react-router-dom'
 
 const Connections = () => {
-  useCheckUser();
+
   const connections  =  useSelector((store)=>store?.connections);
 
  const dispatch = useDispatch();
@@ -55,11 +55,13 @@ const Connections = () => {
                     <img src={photoUrl} alt="user-img" className='w-[10vw] h-[10vw] rounded-full' />
                     </div>
               
-                <div className='flex items-center flex-col ml-[3vw]'>
+                <div className='flex items-center flex-col m-[3vw]'>
                 <h2 className=' font-bold text-xl mb-1 text-white'> {firstName + " " + lastName}</h2>
                 {age && gender && <p className='text-center  text-white text-xl'>{age  + ", " + gender}</p>}
                 <h2 className='ml-[3vw] font-bold text-white' >{about}</h2>
                 </div>
+                
+               <Link to={"/chat/" + _id}><button  className='mt-[3vw] btn btn-primary'>Chat Now</button> </Link> 
 
 
               </div>

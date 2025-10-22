@@ -40,9 +40,9 @@ const Navbar = () => {
   return (
     <div>
       <div className="navbar bg-base-300">
-        <div className="flex-1">
-          <Link to="/" className="btn btn-ghost text-xl">
-            <img src="/logo.png" alt="Devconnect" className="w-44 h-10" />
+        <div className="flex-1 ">
+          <Link to="/" className="btn btn-ghost text-xl  h-14 w-64">
+            <img src="/images/logo.png" alt="Devconnect" className="h-full w-full  object-cover" />
           </Link>
         </div>
         <div className="flex-none gap-2">

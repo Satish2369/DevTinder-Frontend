@@ -15,6 +15,8 @@ import ContactUs from "./Components/ContactUs";
 import CancellationNRefund from "./Components/CancellationNRefund";
 import ShippingNDelivery from "./Components/ShippingNDelivery";
 import Premium from "./Components/Premium";
+import Chat  from "./Components/Chat";
+
 
 const App = () => (
    
@@ -38,6 +40,8 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/premium" element={<Premium />} />
           <Route path="/contact" element={<ContactUs />} />
+           <Route path="/chat/:toUserId" element={<Chat/>} />
+
           <Route path="/cancellationnrefunds" element={<CancellationNRefund/>} />
           <Route path="/shippingndelivery" element={<ShippingNDelivery />} />
      
@@ -59,4 +63,6 @@ const App = () => (
   </div>
 )
 
-export default App
+export default App;
+
+
