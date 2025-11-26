@@ -3,11 +3,13 @@ import { BASE_URL } from '../utils/constants';
 import useCheckUser from '../utils/customhooks/useCheckUser';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const Premium = () => {
 
     
-    useCheckUser();
+   
+    const user = useSelector((store) => store?.user);
 
     useEffect(()=>{
        verifyPremiumUser()
@@ -81,11 +83,120 @@ var rzp1 = new window.Razorpay(options);
     };
 
   return   isUserPremium ? (
+    <div className="min-h-screen py-12 px-6">
+      <div className="max-w-4xl mx-auto">
+        {/* Premium Badge Section */}
+        <div className="text-center mb-10">
+          <div className="relative inline-block mb-6">
+            <div className="w-32 h-32 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 p-1 shadow-2xl shadow-amber-500/30">
+              <div className="w-full h-full rounded-full overflow-hidden bg-gray-900 flex items-center justify-center">
+                <img
+                  src={user?.photoUrl || "https://api.dicebear.com/7.x/avataaars/svg?seed=premium"}
+                  alt="Premium User"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            {/* Crown Icon */}
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <svg className="w-12 h-12 text-amber-400 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm0 2h14v2H5v-2z"/>
+              </svg>
+            </div>
+          </div>
 
-       <div>
-          You are already a premium member;
-       </div>
+          <h1 className="text-4xl font-bold text-white mb-2">
+            Welcome, {user?.firstName}!
+          </h1>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <span className="px-4 py-1.5 bg-gradient-to-r from-amber-400 to-orange-500 text-black font-bold rounded-full text-sm shadow-lg">
+              ⭐ PREMIUM MEMBER
+            </span>
+          </div>
+          <p className="text-gray-400 text-lg">
+            You have access to all exclusive features
+          </p>
+        </div>
 
+        {/* Premium Card */}
+        <div className="bg-gray-900 rounded-2xl border border-amber-500/30 overflow-hidden shadow-xl shadow-amber-500/10">
+          {/* Header Banner */}
+          <div className="h-32 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 relative overflow-hidden">
+            <div className="absolute inset-0 opacity-20">
+              <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon fill="white" points="0,100 100,0 100,100"/>
+              </svg>
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-6xl">👑</span>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="p-8">
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">Your Premium Benefits</h2>
+
+            {/* Benefits Grid */}
+            <div className="grid md:grid-cols-2 gap-4 mb-8">
+              <div className="flex items-center gap-4 p-4 bg-gray-800/50 rounded-xl border border-gray-700">
+                <div className="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold">Unlimited Chat</h3>
+                  <p className="text-gray-400 text-sm">Message anyone, anytime</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-4 bg-gray-800/50 rounded-xl border border-gray-700">
+                <div className="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold">Unlimited Connections</h3>
+                  <p className="text-gray-400 text-sm">Connect with everyone</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-4 bg-gray-800/50 rounded-xl border border-gray-700">
+                <div className="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold">Verified Badge</h3>
+                  <p className="text-gray-400 text-sm">Stand out from the crowd</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-4 bg-gray-800/50 rounded-xl border border-gray-700">
+                <div className="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold">Priority Support</h3>
+                  <p className="text-gray-400 text-sm">Get help faster</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Thank You Message */}
+            <div className="text-center p-6 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-xl border border-amber-500/20">
+              <p className="text-amber-300 font-medium">
+                🎉 Thank you for being a premium member! Enjoy all the exclusive features.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   ) :(
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 py-12 px-4">
       <div className="max-w-6xl mx-auto">
